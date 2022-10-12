@@ -1,6 +1,7 @@
 {
-    "driver_path": "C:\\Users\\atlas\\Documents\\ChromeWebDriver\\chromedriver.exe",
+    "driver_path": "chromedriver.exe",
     "url": "https://pollev.com/login",
     "presentation_mmecon": "mmecon",
-    "presentation_denistkachen573": "denistkachen573"
+    "presentation_denistkachen573": "denistkachen573",
+    "presentation_testing": "yijiewong645"
 }
