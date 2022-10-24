@@ -17,31 +17,23 @@ username = aaron_instance.username
 username_nus = aaron_instance.username_nus
 password = aaron_instance.password
 
-# Ask Aaron which presentation is it tomorrow
-# while True:
-#     aaron_lecture_tomorrow = input("Hello, which lecture is it tomorrow?: ")
+# Ask Aaron which class is it
+while True:
+    current_class = input("Which class is it today? ")
 
-#     if aaron_lecture_tomorrow == "mmecon":
-#         presentation_room = config_settings['presentation_mmecon']
-#         presentation_time = "12:00:00"
-#         break
-presentation_room = config_settings['presentation_denistkachen573']
-#     elif aaron_lecture_tomorrow == "joji":
-#         presentation_room = config_settings['presentation_denistkachen573']
-#         presentation_time = "14:10:00"
-#         break
-#     else:
-#         continue
-
-# Check for the time to run the script
-# now = datetime.now()
-# current_time = str(now.strftime("%H:%M:%S"))
-# print("Current Time = ", current_time)
-
-# while current_time != presentation_time:
-#     now = datetime.now()
-#     current_time = str(now.strftime("%H:%M:%S"))
-#     print(f"Current time is now: {current_time}, presentation not yet started")
+    if current_class == "mmecon":
+        presentation_room = config_settings['class_mmecon']
+        break
+    elif current_class == "denist":
+        presentation_room = config_settings['class_denistkachen573']
+        break
+    elif current_class == "testing":
+        presentation_room = config_settings['class_testing']
+        break
+    else:
+        print("It seems the class you are attending is not known..")
+        print("Please try again")
+        continue
 
 print("Script will now run....")
 
@@ -50,6 +42,12 @@ driver.get(config_settings['url'])
 
 # Login to the website
 login(driver, username, username_nus, password)
+
+# Ensure the constant.txt file is not empty
+with open("constants.txt", "r") as text_file:
+    if text_file.readline() == "":
+        with open("constants.txt", "w") as file_write:
+            file_write.write("PlaceHolder")
 
 # Enter the presentation session
 presentation_enter(driver, presentation_room)

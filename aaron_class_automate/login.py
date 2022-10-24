@@ -38,13 +38,13 @@ def login(driver, username, username_nus, password):
     log_in_to_NUS_username = driver.find_element(By.ID, log_in_to_NUS_username_id)
     log_in_to_NUS_username.send_keys(username_nus)
 
-    time.sleep(3)
+    time.sleep(1)
 
     log_in_to_NUS_password_id = "passwordInput"
     log_in_to_NUS_password = driver.find_element(By.ID, log_in_to_NUS_password_id)
     log_in_to_NUS_password.send_keys(password)
 
-    time.sleep(3)
+    time.sleep(1)
 
     sign_in_nus_id = "submitButton"
     sign_in_nus = driver.find_element(By.ID, sign_in_nus_id)
